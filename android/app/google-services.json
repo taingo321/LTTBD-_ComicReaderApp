@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "792241270913",
+    "project_id": "comicreader-680db",
+    "storage_bucket": "comicreader-680db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792241270913:android:03698199776daa62655d80",
+        "android_client_info": {
+          "package_name": "com.example.comic_reader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvyLHFgs6hlmY26KZka0fFbXCNxhBBfiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
