@@ -16,9 +16,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  int _selectedIndex = 0;
-  List<Widget> screens = [Home(), Search(), AccountCircle()];
-  Widget _selectedScreen = LoginPage();
   bool _obscureText = true;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _usernameController = TextEditingController();
@@ -285,82 +282,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-              bottomNavigationBar: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.search,
-                    size: 30,
-                    color: Colors.black87,
-                  ),
-                  label: "Tìm kiếm"
-              ),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                      Icons.home,
-                      size: 30,
-                      color: Colors.black87,
-                  ),
-                  label: "Trang chủ",
-              ),              
-              BottomNavigationBarItem(
-                  icon: Icon(
-                      Icons.account_circle,
-                      size: 30,
-                      color: Colors.black87,
-                  ),
-                  label: "Tài khoản"
-              ),
-            ],
-            selectedItemColor: Colors.black87, 
-            unselectedItemColor: Colors.black87, 
-            selectedLabelStyle: const TextStyle(
-              fontSize: 18, 
-            ),
-            unselectedLabelStyle: const TextStyle(
-              fontSize: 12, 
-              color: Colors.black87, 
-            ),
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              setState(() {
-                _selectedIndex = index;
-                _selectedScreen = screens[index];
-              });
-            }
-        ),
     );       
   }
 }
 
-class Search extends StatelessWidget {
-  const Search({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Search'),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home'),
-    );
-  }
-}
-
-class AccountCircle extends StatelessWidget {
-  const AccountCircle({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Account Circle'),
-    );
-  }
-}
