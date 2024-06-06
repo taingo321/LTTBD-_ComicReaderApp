@@ -38,6 +38,12 @@ dependencies:
   firebase_database: any
   firebase_core: any
   cloud_firestore: any
+  textfield_shadow: ^1.2.0
+  sign_in_button: ^3.2.0
+  social_login_buttons: ^1.0.7
+  flutter_social_button: ^1.1.4+1
+  scroll_page_view: ^1.0.2
+  draggable_scrollbar: ^0.1.0
 
 dev_dependencies:
   flutter_test:
