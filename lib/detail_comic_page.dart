@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:textfield_shadow/textfield_shadow.dart';
-import 'widgets/detail comic page/category_comic_box.dart';
-import 'widgets/detail comic page/content_comic_box.dart';
-import 'widgets/detail comic page/list_chapter_comic.dart';
+import 'widgets/detail_comic_page/category_comic_box.dart';
+import 'widgets/detail_comic_page/content_comic_box.dart';
+import 'widgets/detail_comic_page/list_chapter_comic.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -140,7 +140,7 @@ class _DetailComicPageState extends State<DetailComicPage> {
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(left: 16, right: 16), // Thêm padding bên trái                       
+                        padding: EdgeInsets.only(left: 16, right: 16),                      
                         child: ButtonGroup(),                        
                       ),                     
                       const Padding(
