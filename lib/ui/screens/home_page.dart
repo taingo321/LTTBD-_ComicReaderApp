@@ -16,19 +16,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
   late List<Book> _bookList;
-  late List<String> _bookTypes;
 
   @override
   void initState() {
     super.initState();
     _bookList = Book.bookList;
-    _bookTypes = [
-      'RECOMMENDED',
-      'NỔI BẬT',
-      'MỚI NHẤT',
-      'THỂ LOẠI',
-      'ĐÁNH GIÁ',
-    ];
   }
 
   bool toggleIsFavorated(bool isFavorated) {
@@ -63,8 +55,6 @@ class _HomePageState extends State<HomePage> {
                   'assets/images/a6.jpg',
                 ],
               ),
-              _buildCategorySelector(size),
-              _buildHorizontalBookList(size),
               _buildSectionTitle('Mới Cập Nhật'),
               _buildVerticalBookList(size),
               _buildSectionTitle('Truyện nổi bật'),
@@ -77,101 +67,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-  Widget _buildCategorySelector(Size size) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      height: 50.0,
-      width: size.width,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: _bookTypes.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              child: Text(
-                _bookTypes[index],
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: selectedIndex == index
-                      ? FontWeight.bold
-                      : FontWeight.w300,
-                  color: selectedIndex == index
-                      ? Constants.primaryColor
-                      : Constants.blackColor,
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildHorizontalBookList(Size size) {
-    return SizedBox(
-      height: size.height * .3,
-      child: ListView.builder(
-        itemCount: _bookList.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                PageTransition(
-                  child: DetailPage(
-                    storyId: _bookList[index].storyId,
-                  ),
-                  type: PageTransitionType.bottomToTop,
-                ),
-              );
-            },
-            child: Container(
-              width: 300,
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              decoration: BoxDecoration(
-                color: Constants.primaryColor.withOpacity(.8),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 10,
-                    right: 20,
-                    child: _buildFavoriteButton(index),
-                  ),
-                  Positioned(
-                    left: 50,
-                    right: 50,
-                    top: 50,
-                    bottom: 50,
-                    child: Image.asset(_bookList[index].imageURL),
-                  ),
-                  Positioned(
-                    bottom: 15,
-                    left: 20,
-                    child: _buildBookInfo(index),
-                  ),
-                  Positioned(
-                    bottom: 15,
-                    right: 20,
-                    child: _buildPartIndicator(index),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
 
   Widget _buildFavoriteButton(int index) {
     return Container(
