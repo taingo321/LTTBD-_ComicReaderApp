@@ -22,13 +22,10 @@ class _AddUserWidgetState extends State<AddUserWidget> {
         Users newUser = Users(
           username: _usernameController.text,
           password: _passwordController.text,
-          // email: _emailController.text,
+          email: _emailController.text,
         );
 
-        return users
-            .add(newUser.toMap())
-            .then((value) => print('User aded'))
-            .catchError((error) => print('Failed to add user: $error'));
+        return users.add(newUser.toMap());
       }
       return Future.value();
     }
