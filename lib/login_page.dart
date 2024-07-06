@@ -1,7 +1,6 @@
 import 'package:comic_reader/sign_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
-
 void main() {
   runApp(const MaterialApp(
     home: LoginPage(),
@@ -122,7 +121,6 @@ class _LoginPageState extends State<LoginPage> {
                                   controller: _passwordController, 
                                   obscureText: _obscureText,
                                   decoration: InputDecoration(
-                                      
                                       border: InputBorder.none,
                                       labelText: "Mật khẩu",
                                       labelStyle: const TextStyle(fontSize: 16,
@@ -285,4 +283,5 @@ class _LoginPageState extends State<LoginPage> {
     );       
   }
 }
+
 
