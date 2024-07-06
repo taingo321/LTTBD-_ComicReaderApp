@@ -27,104 +27,35 @@ class ButtonGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 4,
-      runSpacing: 10,
-      children: <Widget>[
-        SizedBox(
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.all(8),
-              backgroundColor: const Color.fromRGBO(255, 186, 106, 1),
-            ),
-            child: const Text('Action',
-                              style: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 15,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
+    final categories = ['Action', 'Comedy', 'Harem', 'Romance', 'Shounen'];
+    return Column(
+      children: [
+        Wrap(
+          spacing: 10, 
+          runSpacing: 10, 
+          children: categories.map((category) {
+            return SizedBox(
+              width: 100, 
+              height: 40, 
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(8), // Điều chỉnh padding
+                  backgroundColor: const Color.fromRGBO(255, 186, 106, 1),
+                ),
+                child: Text(
+                  category,
+                  style: const TextStyle(
+                    color: Colors.black87,
+                    fontSize: 15, // Điều chỉnh kích thước chữ
+                    fontFamily: 'OpenSans',
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          }).toList(),
         ),
-        const SizedBox(width: 10),
-        SizedBox(
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(8),
-              backgroundColor: const Color.fromRGBO(255, 186, 106, 1),
-            ),
-            child: const Text('Comedy',
-            style: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 15,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(width: 10),
-        SizedBox(
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(8),
-              backgroundColor: const Color.fromRGBO(255, 186, 106, 1),
-            ),
-            child: const Text('Harem',
-            style: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 15,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(width: 10),
-        SizedBox(
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.all(8),
-              backgroundColor: const Color.fromRGBO(255, 186, 106, 1),
-            ),
-            child: const Text('Romance',
-            style: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 15,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(width: 10),
-        SizedBox(
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(8),
-              backgroundColor: const Color.fromRGBO(255, 186, 106, 1),
-            ),
-            child: const Text('Shounen',
-            style: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 15,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ),       
       ],
     );
   }
