@@ -3,7 +3,6 @@ import 'package:comic_reader/home_page.dart';
 import 'package:comic_reader/sign_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
-
 void main() {
   runApp(const MaterialApp(
     home: LoginPage(),
@@ -152,38 +151,46 @@ class _LoginPageState extends State<LoginPage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: TextFormField(
-                            controller: _passwordController,
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
-                              labelText: "Mật khẩu",
-                              labelStyle: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w300,
-                              ),
-                              prefixIcon: Icon(
-                                Icons.person_2_outlined,
-                                color: Colors.grey,
-                              ),
-                              prefixIconConstraints:
-                                  BoxConstraints(minWidth: 45),
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 10.0, horizontal: 15.0),
-                            ),
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontFamily: 'OpenSans',
-                              fontWeight: FontWeight.w300,
-                              color: Colors.black,
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Vui lòng nhập mật khẩu!';
-                              }
-                              return null;
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Thêm padding cho TextFormField mới
+                            child: Container(
+                                decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: TextFormField(
+                                  controller: _passwordController, 
+                                  obscureText: _obscureText,
+                                  decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      labelText: "Mật khẩu",
+                                      labelStyle: const TextStyle(fontSize: 16,
+                                                        fontFamily: 'OpenSans',
+                                                        fontWeight: FontWeight.w300,),
+                                      prefixIcon: const Icon(Icons.lock,
+                                                      color: Colors.grey,),
+                                      prefixIconConstraints: BoxConstraints(minWidth: 45),
+                                      suffixIcon: GestureDetector(
+                                        onTap: () {
+                                          setState(() { 
+                                          _obscureText = !_obscureText; 
+                                            });
+                                          },
+                                        child: Icon(
+                                        _obscureText ? Icons.remove_red_eye : Icons.visibility_off, // Thay đổi icon tùy theo trạng thái
+                                        size: 22,
+                                        color: Colors.grey,
+                                        ),
+                                    ),
+                                      suffixIconConstraints: BoxConstraints(minWidth: 45)
+                                  ),
+                                validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                    return 'Vui lòng nhập mật khẩu';
+                                    }
+                                    return null;
                             },
-                          ),
+                          ),                            
                         ),
                       ),
                     ],
@@ -328,3 +335,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
