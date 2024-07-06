@@ -1,7 +1,7 @@
 import 'package:appcomics/constants.dart';
 import 'package:appcomics/ui/root_page.dart';
 import 'package:flutter/material.dart';
-import 'package:appcomics/ui/login_page.dart';
+
 
 
 class OnboardingScreen extends StatefulWidget {

@@ -22,10 +22,10 @@ class _FilterBarState extends State<FilterBar> {
       alignment: Alignment.centerLeft,
       width: 230,
       height: 50,
-      margin: EdgeInsets.only(left: 170, bottom: 8),
+      margin: EdgeInsets.only(left: 170, bottom: 12),
       decoration: BoxDecoration(
       color: Colors.white,
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(22),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

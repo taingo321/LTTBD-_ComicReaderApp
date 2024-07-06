@@ -78,7 +78,7 @@ class _SearchState extends State<SearchPage> {
                     child: TextField(
                       showCursor: false,
                       decoration: InputDecoration(
-                        hintText: 'Search Story',
+                        hintText: 'Tìm kiếm ...',
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
                       ),
@@ -101,7 +101,7 @@ class _SearchState extends State<SearchPage> {
               ),
               child: Row(
                 children: [
-                  Text(_selectedGenre.isEmpty ? 'Select a Genre' : _selectedGenre),
+                  Text(_selectedGenre.isEmpty ? 'Thể loại' : _selectedGenre),
                   Spacer(),
                   IconButton(
                     icon: Icon(Icons.arrow_drop_down),
@@ -133,9 +133,9 @@ class _SearchState extends State<SearchPage> {
                       onSelected: (bool selected) {
                         setState(() {
                           if (_selectedGenre == genre) {
-                            _selectedGenre = ''; // Bỏ chọn thể loại nếu nhấn lại thể loại đã chọn
+                            _selectedGenre = '';
                           } else {
-                            _selectedGenre = genre; // Chọn thể loại mới
+                            _selectedGenre = genre;
                           }
                           _showGenres = false;
                         });
@@ -153,7 +153,7 @@ class _SearchState extends State<SearchPage> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 10.0,
                     mainAxisSpacing: 10.0,
-                    childAspectRatio: 0.7, // Tỷ lệ chiều rộng / chiều cao của mỗi ô
+                    childAspectRatio: 0.7,
                   ),
                   itemCount: _bookList.length,
                   itemBuilder: (BuildContext context, int index) {
@@ -192,7 +192,7 @@ class _SearchState extends State<SearchPage> {
                               child: Image.asset(
                                 book.imageURL,
                                 fit: BoxFit.cover,
-                                height: 150, // Chiều cao hình ảnh
+                                height: 150,
                                 width: double.infinity,
                               ),
                             ),

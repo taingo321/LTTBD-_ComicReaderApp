@@ -4,7 +4,8 @@ import 'package:appcomics/ui/screens/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import '../Slider/SliderSyncDemo.dart';
-import 'package:appcomics/filter_bar.dart';
+import 'package:appcomics/ui/buttonWeekMonthYear/filter_bar.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -136,12 +137,12 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildSectionTitle(String title) {
     return Container(
-      padding: const EdgeInsets.only(left: 16, bottom: 20, top: 20),
+      padding: const EdgeInsets.only(left: 16, bottom: 6, top: 20),
       child: Text(
         title,
         style: const TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 18.0,
+          fontSize: 22.0,
         ),
       ),
     );
@@ -268,7 +269,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(5),
               width: size.width * 0.4, // Điều chỉnh chiều rộng của container
               decoration: BoxDecoration(
-                color: Constants.primaryColor.withOpacity(0.8),
+                color: const Color.fromARGB(137, 187, 181, 181),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Row(

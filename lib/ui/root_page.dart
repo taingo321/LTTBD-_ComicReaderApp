@@ -1,11 +1,12 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:appcomics/constants.dart';
-
+import 'package:appcomics/ui/screens/app_list_function_page.dart';
 import 'package:appcomics/ui/screens/home_page.dart';
-import 'package:appcomics/ui/screens/profile_page.dart';
 import 'package:appcomics/ui/screens/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:appcomics/widgets/add_new_user_widget.dart';
+
 
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -21,7 +22,8 @@ class _RootPageState extends State<RootPage> {
   final List<Widget> _pages = const [
     HomePage(),
     SearchPage(),
-    ProfilePage(),
+    AppListFunctionPage(),
+
   ];
 
   // List of the pages icons
@@ -53,11 +55,34 @@ class _RootPageState extends State<RootPage> {
                 fontSize: 24,
               ),
             ),
-            Icon(
-              Icons.notifications,
-              color: Constants.blackColor,
-              size: 30.0,
-            )
+            PopupMenuButton<String>(
+              icon: Icon(Icons.more_vert, color: Constants.blackColor), // Icon dấu ba chấm
+              onSelected: (String value) {
+                // Xử lý khi người dùng chọn một mục từ menu
+                setState(() {
+                  // Tùy thuộc vào giá trị value để điều hướng đến trang tương ứng
+                  if (value == 'login') {
+                    // Chuyển sang trang AddUserWidget
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AddUserWidget()),
+                    );
+                  } else if (value == 'register') {
+                    _bottomNavIndex = 1;
+                  }
+                });
+              },
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                PopupMenuItem<String>(
+                  value: 'login',
+                  child: Text('Đăng nhập'),
+                ),
+                PopupMenuItem<String>(
+                  value: 'register',
+                  child: Text('Đăng kí'),
+                ),
+              ],
+            ),
           ],
         ),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,

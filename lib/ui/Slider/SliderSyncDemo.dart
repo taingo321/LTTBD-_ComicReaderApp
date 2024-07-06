@@ -30,7 +30,7 @@ class _SliderSyncDemoState extends State<SliderSyncDemo> {
             height: 250.0,
             viewportFraction: 1.0,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 2990),
+            autoPlayInterval: Duration(seconds: 2994),
             onPageChanged: (index, reason) {
               setState(() {
                 _current = index;
