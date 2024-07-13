@@ -4,6 +4,11 @@ import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'models/users.dart';
 
+void main() {
+  runApp(MaterialApp(
+    home: SignInPage(),
+  ));
+}
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
 
