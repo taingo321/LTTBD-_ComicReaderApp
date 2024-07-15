@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:comic_reader/models/comics.dart';
 
-void main() {
-  runApp(const ContentComicBox());
-}
 
 class ContentComicBox extends StatelessWidget {
-  const ContentComicBox({Key? key}) : super(key: key);
+  final List<Comic>? comic;
+
+  ContentComicBox({super.key, required this.comic});
 
   @override
   Widget build(BuildContext context) {
