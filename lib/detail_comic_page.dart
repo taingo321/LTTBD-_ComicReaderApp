@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:comic_reader/ui/root_page.dart';
 import 'package:flutter/material.dart';
 import 'package:textfield_shadow/textfield_shadow.dart';
 import 'widgets/detail_comic_page/category_comic_box.dart';
@@ -31,6 +33,7 @@ class DetailComicPage extends StatefulWidget {
 }
 
 class _DetailComicPageState extends State<DetailComicPage> {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -61,10 +64,40 @@ class _DetailComicPageState extends State<DetailComicPage> {
                     width: double.infinity,
                     height: 300,
                     child: ColorFiltered(
-                      colorFilter: ColorFilter.mode(Colors.grey.withOpacity(0.4), BlendMode.srcATop),
-                      child: Image.asset(
-                        'anh_mau_1.png',
+                      colorFilter: ColorFilter.mode(
+                          Colors.grey.withOpacity(0.4), BlendMode.srcATop),
+                      child: widget.comic.thumbnailComic.startsWith('http')
+                          ? Image.network(
+                        widget.comic.thumbnailComic,
                         fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Icon(Icons.error);
+                        },
+                      )
+                          : Image.file(
+                        File(widget.comic.thumbnailComic),
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Icon(Icons.error);
+                        },
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          colors: [
+                            Colors.black.withOpacity(0.9),
+                            Colors.transparent,
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -75,8 +108,8 @@ class _DetailComicPageState extends State<DetailComicPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            height: 170,
-                            width: 120,
+                            height: 190,
+                            width: 160,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
@@ -91,9 +124,20 @@ class _DetailComicPageState extends State<DetailComicPage> {
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
+                              child: widget.comic.thumbnailComic.startsWith('http')
+                                  ? Image.network(
                                 widget.comic.thumbnailComic,
                                 fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Icon(Icons.error);
+                                },
+                              )
+                                  : Image.file(
+                                File(widget.comic.thumbnailComic),
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Icon(Icons.error);
+                                },
                               ),
                             ),
                           ),
@@ -101,7 +145,7 @@ class _DetailComicPageState extends State<DetailComicPage> {
                           Text(
                             widget.comic.title,
                             style: const TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: 30,
                               fontFamily: 'OpenSans',
                               fontWeight: FontWeight.w800,
@@ -111,7 +155,7 @@ class _DetailComicPageState extends State<DetailComicPage> {
                           Text(
                             widget.comic.author ?? '',
                             style: const TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: 15,
                               fontFamily: 'OpenSans',
                               fontWeight: FontWeight.w800,
@@ -123,6 +167,7 @@ class _DetailComicPageState extends State<DetailComicPage> {
                   ),
                 ],
               ),
+
               Container(
                 height: 1600,
                 decoration: const BoxDecoration(

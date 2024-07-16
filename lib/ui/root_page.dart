@@ -3,8 +3,8 @@ import 'package:comic_reader/constants.dart';
 import 'package:comic_reader/ui/screens/home_page.dart';
 import 'package:comic_reader/ui/screens/search_page.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:comic_reader/widgets/add_new_user_widget.dart';
+import 'package:comic_reader/ui/screens/search_page.dart';
 
 
 class RootPage extends StatefulWidget {
@@ -20,7 +20,8 @@ class _RootPageState extends State<RootPage> {
   // List of the pages
   final List<Widget> _pages = const [
     HomePage(),
-    //SearchPage(),
+    // SearchPage(),
+
 
 
   ];
