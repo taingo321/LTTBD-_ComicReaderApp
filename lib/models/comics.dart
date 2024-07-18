@@ -27,21 +27,17 @@ class Comic {
 
     factory Comic.fromJson(Map<String, dynamic> json) {
         return Comic(
-            sId: json['_id'],
-            title: json['title'],
-            timestamp: json['timestamp'],
-            thumbnailComic: json['thumbnailComic'],
-            author: json['author'],
-            description: json['description'],
-            view: json['view'],
-            rating: json['rating'],
-            genres: (json['genres'] as List<dynamic>).cast<String>(),
-            chapters: json['chapters'] != null
-                ? (json['chapters'] as List)
-                .map((v) => Chapters.fromJson(v))
-                .toList()
-                : null,
-            iV: json['__v'],
+            sId: json['_id'] ?? '',
+            title: json['title'] ?? '',
+            timestamp: json['timestamp'] ?? '',
+            thumbnailComic: json['thumbnailComic'] ?? '',
+            author: json['author'] ?? '',
+            description: json['description'] ?? '',
+            view: json['view'] ?? '',
+            rating: json['rating'] ?? '',
+            genres: (json['genres'] as List<dynamic>?)?.map((e) => e as String).toList(),
+            chapters: (json['chapters'] as List<dynamic>?)?.map((v) => Chapters.fromJson(v)).toList(),
+            iV: json['__v'] as int?,
         );
     }
 
@@ -56,9 +52,7 @@ class Comic {
         data['view'] = view;
         data['rating'] = rating;
         data['genres'] = genres;
-        if (chapters != null) {
-            data['chapters'] = chapters!.map((v) => v.toJson()).toList();
-        }
+        data['chapters'] = chapters?.map((v) => v.toJson()).toList();
         data['__v'] = iV;
         return data;
     }
@@ -74,14 +68,10 @@ class Chapters {
 
     factory Chapters.fromJson(Map<String, dynamic> json) {
         return Chapters(
-            title: json['title'],
-            timestamp: json['timestamp'],
-            images: json['images'] != null
-                ? (json['images'] as List)
-                .map((v) => Images.fromJson(v))
-                .toList()
-                : null,
-            sId: json['_id'],
+            title: json['title'] as int?,
+            timestamp: json['timestamp'] as String?,
+            images: (json['images'] as List<dynamic>?)?.map((v) => Images.fromJson(v)).toList(),
+            sId: json['_id'] as String?,
         );
     }
 
@@ -89,9 +79,7 @@ class Chapters {
         final Map<String, dynamic> data = <String, dynamic>{};
         data['title'] = title;
         data['timestamp'] = timestamp;
-        if (images != null) {
-            data['images'] = images!.map((v) => v.toJson()).toList();
-        }
+        data['images'] = images?.map((v) => v.toJson()).toList();
         data['_id'] = sId;
         return data;
     }
@@ -105,8 +93,8 @@ class Images {
 
     factory Images.fromJson(Map<String, dynamic> json) {
         return Images(
-            imageUrl: json['image_url'],
-            sId: json['_id'],
+            imageUrl: json['image_url'] as String?,
+            sId: json['_id'] as String?,
         );
     }
 
