@@ -26,7 +26,7 @@ class ListChapterComic extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Tập ${chapter.title.toString()}',
+                    'Chương ${chapter.title.toString()}',
                     style: const TextStyle(
                       color: Colors.black87,
                       fontSize: 18,
