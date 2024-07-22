@@ -5,8 +5,8 @@ import 'package:comic_reader/widgets/detail_comic_page/ReadComicPage.dart';
 
 class ListChapterComic extends StatelessWidget {
   final List<Chapters>? chapters;
-
-  ListChapterComic({super.key, required this.chapters});
+  final Comic comic;
+  ListChapterComic({super.key, required this.chapters, required this.comic});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ListChapterComic extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: chapters != null
-              ? chapters!.map((chapter) {
+              ? chapters!.reversed.map((chapter) {
             return ListTile(
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,7 +48,7 @@ class ListChapterComic extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ReadComicPage(chapter: chapter),
+                    builder: (context) => ReadComicPage(chapter: chapter, comic: comic),
                   ),
                 );
               },

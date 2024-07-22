@@ -17,10 +17,9 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   int _bottomNavIndex = 0;
 
-  // List of the pages
   final List<Widget> _pages = const [
     HomePage(),
-    // SearchPage(),
+    SearchPage(initialGenre: '',),
 
 
 
