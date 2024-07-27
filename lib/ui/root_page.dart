@@ -1,12 +1,10 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+
 import 'package:comic_reader/constants.dart';
 import 'package:comic_reader/ui/screens/home_page.dart';
 import 'package:comic_reader/ui/screens/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:comic_reader/widgets/add_new_user_widget.dart';
-import 'package:comic_reader/ui/screens/search_page.dart';
-
-
+import 'package:comic_reader/ui/screens/app_list_function_page.dart';
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
 
@@ -20,7 +18,7 @@ class _RootPageState extends State<RootPage> {
   final List<Widget> _pages = const [
     HomePage(),
     SearchPage(initialGenre: '',),
-
+    AppListFunctionPage(),
 
 
   ];

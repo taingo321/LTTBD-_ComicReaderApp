@@ -92,7 +92,7 @@ class _ReadComicPageState extends State<ReadComicPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
-            label: 'Bình luận',
+            label: 'Danh sách',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.arrow_forward_ios),

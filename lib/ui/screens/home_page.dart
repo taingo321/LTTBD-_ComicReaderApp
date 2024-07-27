@@ -107,6 +107,7 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
+
             ],
           ),
         ),
@@ -147,7 +148,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
         child: Opacity(
-          opacity: 0.6,
+          opacity: 0.9,
           child: Card(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
