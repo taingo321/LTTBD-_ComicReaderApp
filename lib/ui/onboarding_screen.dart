@@ -2,8 +2,6 @@ import 'package:comic_reader/constants.dart';
 import 'package:comic_reader/ui/root_page.dart';
 import 'package:flutter/material.dart';
 
-
-
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
 

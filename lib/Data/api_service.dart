@@ -44,8 +44,12 @@ class APIService {
 
     if (response.statusCode == 200) {
       final List<dynamic> responseData = json.decode(response.body);
-      List<Comic> allComics = responseData.map((json) => Comic.fromJson(json)).toList();
-      List<Comic> filteredComics = allComics.where((comic) => comic.title?.toLowerCase().contains(title.toLowerCase()) ?? false).toList();
+      List<Comic> allComics =
+          responseData.map((json) => Comic.fromJson(json)).toList();
+      List<Comic> filteredComics = allComics
+          .where((comic) =>
+              comic.title?.toLowerCase().contains(title.toLowerCase()) ?? false)
+          .toList();
 
       return filteredComics;
     } else {

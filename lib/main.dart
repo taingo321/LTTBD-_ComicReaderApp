@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Onboarding Screen',
-      home: OnboardingScreen(),
+      home: LoginPage(),
       debugShowCheckedModeBanner: false,
     );
   }

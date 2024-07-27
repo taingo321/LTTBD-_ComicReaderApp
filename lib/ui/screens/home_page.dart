@@ -133,8 +133,7 @@ class _HomePageState extends State<HomePage> {
       onVisibilityChanged: (VisibilityInfo info) {
         if (info.visibleFraction > 0) {
           if (mounted) {
-            setState(() {
-            });
+            setState(() {});
           }
         }
       },
@@ -147,7 +146,7 @@ class _HomePageState extends State<HomePage> {
           );
         },
         child: Opacity(
-          opacity: 0.6,
+          opacity: 1,
           child: Card(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -170,7 +169,8 @@ class _HomePageState extends State<HomePage> {
                         image: DecorationImage(
                           image: comic.thumbnailComic.startsWith('http')
                               ? CachedNetworkImageProvider(comic.thumbnailComic)
-                              : FileImage(File(comic.thumbnailComic)) as ImageProvider,
+                              : FileImage(File(comic.thumbnailComic))
+                                  as ImageProvider,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -178,22 +178,24 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(10),
                         child: comic.thumbnailComic.startsWith('http')
                             ? CachedNetworkImage(
-                          imageUrl: comic.thumbnailComic,
-                          width: 128,
-                          height: 128,
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) => CircularProgressIndicator(),
-                          errorWidget: (context, url, error) => Icon(Icons.error),
-                        )
+                                imageUrl: comic.thumbnailComic,
+                                width: 128,
+                                height: 128,
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) =>
+                                    CircularProgressIndicator(),
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.error),
+                              )
                             : Image.file(
-                          File(comic.thumbnailComic),
-                          width: 128,
-                          height: 128,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) {
-                            return Icon(Icons.error);
-                          },
-                        ),
+                                File(comic.thumbnailComic),
+                                width: 128,
+                                height: 128,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Icon(Icons.error);
+                                },
+                              ),
                       ),
                     ),
                     const SizedBox(width: 10),

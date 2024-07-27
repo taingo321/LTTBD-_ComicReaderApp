@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:comic_reader/widgets/add_new_user_widget.dart';
 import 'package:comic_reader/ui/screens/search_page.dart';
 
-
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
 
@@ -19,10 +18,9 @@ class _RootPageState extends State<RootPage> {
 
   final List<Widget> _pages = const [
     HomePage(),
-    SearchPage(initialGenre: '',),
-
-
-
+    SearchPage(
+      initialGenre: '',
+    ),
   ];
 
   // List of the pages icons
@@ -55,7 +53,8 @@ class _RootPageState extends State<RootPage> {
               ),
             ),
             PopupMenuButton<String>(
-              icon: Icon(Icons.more_vert, color: Constants.blackColor), // Icon dấu ba chấm
+              icon: Icon(Icons.more_vert,
+                  color: Constants.blackColor), // Icon dấu ba chấm
               onSelected: (String value) {
                 // Xử lý khi người dùng chọn một mục từ menu
                 setState(() {
@@ -100,7 +99,9 @@ class _RootPageState extends State<RootPage> {
             IconButton(
               icon: Icon(_iconList[1]),
               iconSize: _bottomNavIndex == 1 ? 50.0 : 40.0,
-              color: _bottomNavIndex == 1 ? Colors.blue : Colors.black.withOpacity(.5),
+              color: _bottomNavIndex == 1
+                  ? Colors.blue
+                  : Colors.black.withOpacity(.5),
               onPressed: () {
                 setState(() {
                   _bottomNavIndex = 1;
@@ -110,7 +111,9 @@ class _RootPageState extends State<RootPage> {
             IconButton(
               icon: Icon(_iconList[0]),
               iconSize: _bottomNavIndex == 0 ? 50.0 : 40.0,
-              color: _bottomNavIndex == 0 ? Colors.blue : Colors.black.withOpacity(.5),
+              color: _bottomNavIndex == 0
+                  ? Colors.blue
+                  : Colors.black.withOpacity(.5),
               onPressed: () {
                 setState(() {
                   _bottomNavIndex = 0;
@@ -120,7 +123,9 @@ class _RootPageState extends State<RootPage> {
             IconButton(
               icon: Icon(_iconList[2]),
               iconSize: _bottomNavIndex == 2 ? 50.0 : 40.0,
-              color: _bottomNavIndex == 2 ? Colors.blue : Colors.black.withOpacity(.5),
+              color: _bottomNavIndex == 2
+                  ? Colors.blue
+                  : Colors.black.withOpacity(.5),
               onPressed: () {
                 setState(() {
                   _bottomNavIndex = 2;
