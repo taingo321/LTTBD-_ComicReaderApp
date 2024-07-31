@@ -18,3 +18,5 @@
 - [MongoDB](https://www.mongodb.com/)
 - [Node.js](https://nodejs.org/en)
 - [Express.js](https://expressjs.com/)
+## API cho ứng dụng di động đọc truyện tranh
+- [ComicReaderAPI](https://github.com/taingo321/ComicReaderAPI.git)
