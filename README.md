@@ -6,15 +6,15 @@
 - Quản lí danh sách truyện tranh (dành cho Admin)
 - Đọc và theo dõi danh truyện tranh
 - Tìm kiếm và phân loại truyện tranh
-- Lưu truyện tranh
-- Quản lí hồ sơ người dùng
 ## Chức năng dự kiến phát triển
+- Lưu truyện tranh
+- Quản lý hồ sơ người dùng
 - Bình luận và đánh giá truyện tranh 
 - Thanh toán online cho các tính năng nâng cao
 - Tích hợp công nghệ AI hỗ trợ người dùng tham khảo truyện tranh tùy theo nhu cầu,sở thích,...
 ## Công nghệ sử dụng
 - [Flutter](https://flutter.dev/)
 - [Firebase](https://firebase.google.com/)
-- [ZaloPay](https://zalopay.vn/)
-- [MomoPay](https://momo.vn/)
-- [Google_AI_Studio](https://aistudio.google.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Node.js](https://nodejs.org/en)
+- [Express.js](https://expressjs.com/)
